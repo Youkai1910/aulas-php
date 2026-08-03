@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP -Sintaxe Geral</title>
+    <!-- CSS INTERNO -->
+     <style>
+     .exemplo{ 
+       border: solid 4px;
+       padding: 4px;
+       /* Propriedade CSS cujo o valor vem de um processamento PHP */
+       color:<?php echo "orange"; ?>; 
+     }
+     </style>
+</head>
+<body>
+    <h1 class="exemplo">Trabalhando com PHP</h1>
+    <hr>
+
+
+    <?php
+    //Geração de texto/string
+    echo "Estou estudando a linguagem PHP para Back-END \n";
+    echo 'Este também é um texto/string';
+
+    //Geração de tags/atributos HTML
+
+    echo "<p>Este é um parágrafo gerado via PHP</p>";
+    
+    // aspas dulpa simple fora, aspa dentro
+    echo '<p><abbr title= "HyperText Pregorcessor">PHP</abbr>
+    é uma linguagem popular</p>';
+
+    //aspa dupla fora, aspa simples dentro
+    echo "<p><abbr title= 'HyperText Pregorcessor'>PHP</abbr>
+    é uma linguagem popular</p>";
+
+    // aspa dupla fora , aspa dupla com escape "\" dentro
+    echo "<p><abbr title=\"HyperText Pregorcessor\">PHP</abbr>
+    é uma linguagem popular</p>";
+?>
+<script>
+    const tituloH1 = document.querySelector('h1');
+    tituloH1.addEventListener("click", function(){
+        /*O conteudo  do alert foi gerado via PHP */
+        alert("<?php echo "Olá PHP e JavaScript!"; ?>");
+    });
+</script>
+</body>
+</html>
