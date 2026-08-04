@@ -27,7 +27,7 @@
 
     if ($numero > 10) {
 
-    ?> <p>$numero é maior que 10.</p>
+    ?> <p><?=  $numero?> é maior que 10.</p>
     <?php
     }
     ?>
