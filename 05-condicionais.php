@@ -63,10 +63,10 @@
     <hr>
 
     <h2>Condicional ENCADEADA: <code>if, elseif, else</code></h2>
-    <?php 
+    <?php
     $idade = 15;
     $situacao = ""; // opcional (nem obrigatório declara previamente)
-    if($idade <= 12){
+    if ($idade <= 12) {
         $situacao = "criança";
     } elseif ($idade <= 17) {
         $situacao = "adolescente";
@@ -76,7 +76,28 @@
         $situacao = "Idoso";
     }
     ?>
-    <p>O usuário tem <?= $idade?> anos é <?= $situacao ?>.</p>
+    <p>O usuário tem <?= $idade ?> anos é <?= $situacao ?>.</p>
+
+    <h3>Usando os comandos <code>switch/case/default/break</code></h3>
+    <?php
+    /* Protótico de chatboot
+    opções: 1 (Informções), 2 (reclamações), 3 (elogio), x (inválida) */
+    $opcao = 2;
+
+    switch ($opcao) {
+        case 1:
+            echo "<p>Legal, o que quer saber</p>";
+            break;
+        case 2:
+            echo "<p>Que pena, o que houve?</p>";
+            break;
+        case 3:
+            echo "<p>Que bacana, pode falar</p>";
+            break;
+        default:
+            echo "<p>Não entendi... vou chamar alguém</p>";
+            break;
+    } ?>
 </body>
 
 </html>
