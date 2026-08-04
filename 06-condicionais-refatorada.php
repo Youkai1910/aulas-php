@@ -82,24 +82,24 @@
 
     <h3>Usando os comandos <code>switch/case/default/break</code></h3>
     <?php
-    /* Protótico de chatboot
-    opções: 1 (Informções), 2 (reclamações), 3 (elogio), x (inválida) */
-    $opcao = 2;
+    
+    $opcao = 1;
 
     switch ($opcao) {
         case 1:
-            echo "<p>Legal, o que quer saber</p>";
+            $texto = "Legal, o que quer saber?";
             break;
         case 2:
-            echo "<p>Que pena, o que houve?</p>";
+            $texto = "Que pena, o que houve?";
             break;
         case 3:
-            echo "<p>Que bacana, pode falar</p>";
+            $texto = "Que bacana, pode falar";
             break;
         default:
-            echo "<p>Não entendi... vou chamar alguém</p>";
+            $texto = "Não entendi... vou chamar alguém";
             break;
     } ?>
+    <p><?= $texto ?></p>
 </body>
 
 </html>
