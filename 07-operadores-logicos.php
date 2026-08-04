@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP - Operadores - Lógicos</title>
+</head>
+
+<body>
+    <h1>Trabalhando com Operadores</h1>
+    <hr>
+    <h2>&& (E/AND)</h2>
+    <p>Retorna <b>verdadeiro/true</b> se <b>todas</b> as condições forem verdadeiras.</p>
+
+    <?php
+    $nota1 = 10;
+    $nota2 = 7;
+    $media = ($nota1 + $nota2) / 2;
+    $faltas = 1;
+    ?>
+    <p><b>Média: </b> <?= $media ?></p>
+    <p><b>Faltas: </b><?= $faltas ?></p>
+    <!-- O aluno só estará aprovado se tiver média de pelo menos 7 e faltas de no máximo 10 -->
+
+    <?php if ($media >= 7 && $faltas <= 10): ?>
+        <p>Aprovado!</p>
+    <?php else: ?>
+    <?php endif; ?>
+    <hr>
+    <!-- || duplo PIPE -->
+    <h2>|| (OU/OR)</h2>
+    <p>Retornar <b>verdadeiro/true</b> se pelo menos <b>uma</b>das condições
+        for verdadeira.</p>
+
+    <?php
+    /* Dar um desconto a um cliente desde que ele(a) seja VIP ou que tenha cupom de desconto */
+    $valor = 1000;
+    $clienteVIP = true; // valor/tipo lógico (ou booleano)
+    $temCupom = false; // valor tipo lógico (ou booleano)
+    $percentualDesconto = 0.10; // 10%
+
+    if ($clienteVIP || $temCupom):
+    ?>
+        <p>desconto aplicado com sucesso!</p>
+        <p>valor: R$ <?= $valor - $valor * $percentualDesconto ?></p>
+    <?php
+    else:
+    ?>
+        <p>Sem desconto!</p>
+        <p>Valor: R$<?= $valor ?></p>
+
+    <?php endif;
+    ?>
+</body>
+
+</html>
