@@ -37,7 +37,7 @@
     <h2>Condicional Composta: <code>if/else</code></h2>
     <?php
     $produto = "Ultrabook";
-    $qtdEmEstoque = 30;
+    $qtdEmEstoque = 0;
     $qtdCritica = 5;
     ?>
     <h3><?= $produto ?></h3>
@@ -45,23 +45,23 @@
 
     <?php
     if ($qtdEmEstoque < $qtdCritica) {
-        echo "<p class=\"comprar\">É necessário comprar/repor</p>";
+        ?>
 
-        // condicional ANINHADA
+        <p class="comprar">É necessário comprar/repor</p>
+
+       <?php
         if ($qtdEmEstoque === 0) {
-            echo  "<p><mark class=\"comprar\"> URGENTE!</mark></p>";
+            ?>
+            <p><mark class="comprar"> URGENTE!</mark></p>
+    <?php
         }
     } else {
-        echo "<p class= 'normal'>Estoque normal.</p>";
-    }
-    //if/else versão abreviada(shorthand if) ?;
-    $excessoDeEstoque = $qtdEmEstoque > 100 ? "sim" : "não";
-    echo $excessoDeEstoque;
-
-    echo "<br>";
-
-    echo $qtdEmEstoque > 100 ? "sim" : "não";
+        ?>
+        <p class="normal">Estoque normal.</p>
+  <?php
+    } 
     ?>
+   
     <hr>
 
     <h2>Condicional ENCADEADA: <code>if, elseif, else</code></h2>
