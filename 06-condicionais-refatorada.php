@@ -44,22 +44,22 @@
     <p><b>Quantidade em estoque:</b><?= $qtdCritica ?></p>
 
     <?php
-    if ($qtdEmEstoque < $qtdCritica) {
+    if ($qtdEmEstoque < $qtdCritica) :
         ?>
 
         <p class="comprar">É necessário comprar/repor</p>
 
        <?php
-        if ($qtdEmEstoque === 0) {
+        if ($qtdEmEstoque === 0) :
             ?>
             <p><mark class="comprar"> URGENTE!</mark></p>
     <?php
-        }
-    } else {
+        endif;
+    else: 
         ?>
         <p class="normal">Estoque normal.</p>
   <?php
-    } 
+    endif;
     ?>
    
     <hr>
