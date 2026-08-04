@@ -46,7 +46,13 @@
      <?php
      if ($qtdEmEstoque < $qtdCritica){
         echo "<p class=\"comprar\">É necessário comprar/repor</p>";
-     }else {
+
+        // condicional ANINHADA
+        if ($qtdEmEstoque === 0) {
+            echo  "<p><mark class=\"comprar\"> URGENTE!</mark></p>";
+        }
+
+    }else {
         echo "<p class= 'normal'>Estoque normal.</p>";
      }
      ?>
