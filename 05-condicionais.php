@@ -6,8 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PHP - Condicionais</title>
     <style>
-        .comprar { color: red;}
-        .normal { color: blue;}
+        .comprar {
+            color: red;
+        }
+
+        .normal {
+            color: blue;
+        }
     </style>
 </head>
 
@@ -26,36 +31,52 @@
     }
 
     //Estrututra abreviada (sem chaves)
-    if ($numero > 10) echo "<p>$numero é maior que 10.</p>" ;
+    if ($numero > 10) echo "<p>$numero é maior que 10.</p>";
 
     //Estrututra alternativa (sem chaves, com : e endif)
-    if($numero > 10):
+    if ($numero > 10):
         echo "<p>$numero é maior que 10.</p>";
     endif;
     ?>
     <hr>
     <h2>Condicional Composta: <code>if/else</code></h2>
-    <?php 
+    <?php
     $produto = "Ultrabook";
     $qtdEmEstoque = 30;
     $qtdCritica = 5;
-     ?>
-     <h3><?= $produto ?></h3>
-     <p><b>Quantidade em estoque:</b><?= $qtdCritica ?></p>
+    ?>
+    <h3><?= $produto ?></h3>
+    <p><b>Quantidade em estoque:</b><?= $qtdCritica ?></p>
 
-     <?php
-     if ($qtdEmEstoque < $qtdCritica){
+    <?php
+    if ($qtdEmEstoque < $qtdCritica) {
         echo "<p class=\"comprar\">É necessário comprar/repor</p>";
 
         // condicional ANINHADA
         if ($qtdEmEstoque === 0) {
             echo  "<p><mark class=\"comprar\"> URGENTE!</mark></p>";
         }
-
-    }else {
+    } else {
         echo "<p class= 'normal'>Estoque normal.</p>";
-     }
-     ?>
+    }
+    ?>
+    <hr>
+
+    <h2>Condicional ENCADEADA: <code>if, elseif, else</code></h2>
+    <?php 
+    $idade = 15;
+    $situacao = ""; // opcional (nem obrigatório declara previamente)
+    if($idade <= 12){
+        $situacao = "criança";
+    } elseif ($idade <= 17) {
+        $situacao = "adolescente";
+    } elseif ($idade <= 59) {
+        $situacao = "adulto";
+    } else {
+        $situacao = "Idoso";
+    }
+    ?>
+    <p>O usuário tem <?= $idade?> anos é <?= $situacao ?>.</p>
 </body>
 
 </html>
