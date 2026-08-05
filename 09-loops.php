@@ -10,7 +10,7 @@
     <hr>
 
     <h2>while (enquanto)</h2>
-    <p>Executações repetidas vezes <b>enquanto</b>a condição  for <b>verdadeira</b>.</p>
+    <p>Executações repetidas vezes <b>enquanto</b> a condição  for <b>verdadeira</b>.</p>
     <?php 
     $i = 1;
     while($i <= 5): // ou {
@@ -20,5 +20,34 @@
     $i++;
     endwhile; // ou }
     ?>
+    <hr>
+    <h2>do/while (faça/enquanto)</h2>
+    <p>Executa ações pelo menos <b>uma vez</b> e, se a condição for verdadeira, continua executando outras vezes.</p>
+    <?php 
+    $j = 1;
+    do {
+    ?>
+<div>
+    <h3>Título qualquer...</h3>
+    <p>Bloco <?= $j ?></p>
+</div>
+    <?php 
+    $j++;
+    } while ($j <= 3);
+    ?>
+    <hr>
+
+    <h2>for (para)</h2>
+    <p>Executa ações de acordo com uma <b>quantidade determinada de vezes</b>.</p>
+
+    <section>
+        <h3>FAQ (Perguntas Frequentes)</h3>
+    <?php for($i = 1; $i <= 5; $i++){ // ou :?>
+    <details>
+        <summary>Pergunta <?= $i ?></summary>
+        <p>Resposta <?= $i ?></p>
+    </details>
+    <?php } // ou endfor;?>
+    </section>
 </body>
 </html>
