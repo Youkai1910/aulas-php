@@ -34,15 +34,89 @@
             ["Teoria das Cores", "photoshop com IA", "UX/UI"]
         ];
         $linhas = count($planoDeEstudo);
-        for ($i = 0; $i < $linhas; $i++)://acessa cada linha
+        for ($i = 0; $i < $linhas; $i++): //acessa cada linha
             $colunas = count($planoDeEstudo[$i]);
-            for ($j = 0; $j < $colunas; $j++)://acessa cada coluna
+            for ($j = 0; $j < $colunas; $j++): //acessa cada coluna
         ?>
                 <p><?= $planoDeEstudo[$i][$i] ?></p>
         <?php
-            endfor;// fim do acesso a cada coluna
-        endfor;// fim do acesso a cada linha 
+            endfor; // fim do acesso a cada coluna
+        endfor; // fim do acesso a cada linha 
         ?>
+        <hr>
+
+        <h2>Usando o loop foreach para arrays</h2>
+
+        <?php
+        $alunos = ["Thiago", "Adela", "Renan", "Pérola"];
+        foreach ($alunos as $aluno):
+        ?>
+            <p><?= $aluno ?></p>
+
+        <?php
+        endforeach
+        ?>
+
+        <hr>
+
+        <h2>Usando foreach para array associativo</h2>
+
+        <?php
+        $curso = [
+            "titulo" => "Gastronomia",
+            "carga_horaria" => 200,
+            "descrição" => "Aprender o básico sobre a área"
+        ];
+        //extraindo somente o valor
+        foreach ($curso as $chave => $valor):
+        ?>
+            <p><b><?= $chave ?></b>: <?= $valor ?></p>
+
+        <?php
+        endforeach;
+        foreach ($curso as $chave):
+        ?>
+            <p><i><?= $valor ?></i></p>
+        <?php
+        endforeach;
+        ?>
+
+        <hr>
+        <h2>Usando foreach em uma matriz</h2>
+        <?php 
+        foreach ($planoDeEstudo as $categoria):
+            foreach ($categoria as $assunto):
+        ?>
+        <p><?= $assunto ?></p>
+        <?php 
+        endforeach;
+    endforeach;
+        ?>
+
+        <hr>
+        <h2>Usando foreach em uma matriz associativa</h2>
+        <?php 
+        $clientes = [
+            [
+                "nome" => "Juliene",
+                "email" => "ju@senac.br"
+            ],
+            [
+                "nome" => "Luiz",
+                "email" => "luiz@senac.br"
+            ]
+        ];
+        foreach($clientes as $cliente):
+        ?>
+        <p><b>Nome:</b> <span class="bg-primary-subtle p-1"><?= $cliente["nome"] ?></span></p>
+        <p><b>E-mail:</b> <span class="bg-dark-sbtle p-1"><?= $cliente["email"] ?></span></p>
+
+        <?php 
+        endforeach;
+        ?>
+
+
+
 
     </div>
 
