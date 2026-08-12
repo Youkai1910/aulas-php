@@ -6,7 +6,8 @@
     <title>Exercicio 04</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-
+   <style>
+</style>
 </head>
 <body>
 <!--
@@ -45,11 +46,57 @@ $linguagens = [
     ],
     [
         "nome" => "SQL",
-        "indentificador" => 1,
+        "indentificador" => 5,
         "descrição" => "Manipulação de dados"
     ]
-];
-?>
+];?> 
+
+<?php foreach ($linguagens as $linguagem): ?>
+    <h2><?= $linguagem['nome'] ?></h2>
+    <p>Descrição: <?= $linguagem['descrição'] ?></p>
+    
+    <ul>
+        <li><b>ID:</b> <?= $linguagem['indentificador'] ?></li>
+    </ul>
+<?php endforeach; ?>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Linguagem</th>
+      <th scope="col">Descrição</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+ <tr>
+      <th scope="row">1</th>
+      <td>HTML</td>
+      <td>Estruturação</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>CSS</td>
+      <td>Estilos</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>JS</td>
+      <td>Comportamentos</td>
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+      <td>PHP</td>
+      <td>Back-End</td>
+    </tr>
+    <tr>
+      <th scope="row">5</th>
+      <td>SQL</td>
+      <td>Manipulação</td>
+    </tr>
+  </tbody> 
+</table>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
