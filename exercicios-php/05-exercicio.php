@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercicios-05</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    
+
 </head>
+
 <body>
     <!--Nele, crie três variáveis para representar as notas de um aluno.
  Crie duas funções: uma para os processos de cálculo da média, e outra para os processos de verificação da situação do aluno.
@@ -40,6 +41,9 @@ Adapte o exercício para que funcione com uma lista de 5 alunos, com suas respec
         {
             if ($media >= 7) {
                 return 'Aprovado';
+            } elseif ($media >= 5) {
+
+                return 'Recuperação';
             } else {
                 return 'Reprovado';
             }
@@ -48,9 +52,9 @@ Adapte o exercício para que funcione com uma lista de 5 alunos, com suas respec
         $alunos = [
             ["nome" => "Ana Silva", "notas" => [8.5, 7.0, 9.0]],
             ["nome" => "Bruno Costa", "notas" => [5.0, 6.5, 4.0]],
-            ["nome" => "Carlos Souza", "notas" => [7.0, 7.5, 7.0]],
-            ["nome" => "Daniela Lima", "notas" => [5.0, 10.0, 9.5]],
-            ["nome" => "Eduardo Alves", "notas" => [6.0, 5.5, 7.0]]
+            ["nome" => "Carlos Souza", "notas" => [7.0, 5.5, 7.0]],
+            ["nome" => "Daniel Lima", "notas" => [5.0, 4.5, 5.0]],
+            ["nome" => "Eduardo Alves", "notas" => [1.0, 5.5, 7.0]]
         ];
         ?>
         <div class="table-responsive">
@@ -69,10 +73,15 @@ Adapte o exercício para que funcione com uma lista de 5 alunos, com suas respec
                     <?php foreach ($alunos as $aluno):
                         $media = calcularMedia($aluno['notas']);
                         $situacao = verificarSituacao($media);
-                        $classeCor = ($situacao === 'Aprovado') ? 'text-success fw-bold' : 'text-danger fw-bold';
-                        $classeLinha = ($situacao === 'Aprovado') ? 'table-success-subtle' : 'table-danger-subtle';
+                        if ($situacao === 'Aprovado') {
+                            $classeCor = 'text-success fw-bold';
+                        } elseif ($situacao === 'Recuperação') {
+                            $classeCor = 'text-warning fw-bold';
+                        } else {
+                            $classeCor = 'text-danger fw-bold';
+                        }
                     ?>
-                        <tr class="<?= $classeLinha ?>">
+                        <tr>
                             <td><?= $aluno['nome'] ?></td>
                             <td><?= number_format($aluno['notas'][0], 1) ?></td>
                             <td><?= number_format($aluno['notas'][1], 1) ?></td>
