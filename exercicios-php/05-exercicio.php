@@ -23,14 +23,26 @@ Adapte o exercício para que funcione com uma lista de 5 alunos, com suas respec
         <hr>
         <?php
 
-        function calcularMedia(array $notas): float
+        function calcularMedia($notas)
         {
-            return array_sum($notas) / count($notas);
+            $soma = 0;
+            $quantidade = 0;
+
+            foreach ($notas as $nota) {
+                $soma = $soma + $nota;
+                $quantidade = $quantidade + 1;
+            }
+
+            return $soma / $quantidade;
         }
 
-        function verificarSituacao(float $media): string
+        function verificarSituacao($media)
         {
-            return $media >= 7 ? 'Aprovado' : 'Reprovado';
+            if ($media >= 7) {
+                return 'Aprovado';
+            } else {
+                return 'Reprovado';
+            }
         }
 
         $alunos = [
