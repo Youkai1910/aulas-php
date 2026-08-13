@@ -6,10 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercicios-05</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-
-   
+    
 </head>
-
 <body>
     <!--Nele, crie três variáveis para representar as notas de um aluno.
  Crie duas funções: uma para os processos de cálculo da média, e outra para os processos de verificação da situação do aluno.
