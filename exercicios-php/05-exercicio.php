@@ -71,26 +71,26 @@ Adapte o exercício para que funcione com uma lista de 5 alunos, com suas respec
                 </thead>
                 <tbody>
                     <?php foreach ($alunos as $aluno):
-    $media = calcularMedia($aluno['notas']);
-    $situacao = verificarSituacao($media);
+                        $media = calcularMedia($aluno['notas']);
+                        $situacao = verificarSituacao($media);
+                        if ($situacao === 'Aprovado') {
+                            $classeCor = 'text-success fw-bold';
+                        } elseif ($situacao === 'Recuperação') {
+                            $classeCor = 'text-warning fw-bold';
+                        } else {
+                            $classeCor = 'text-danger fw-bold';
+                        }
+                    ?>
+                        <tr>
+                            <td><?= $aluno['nome'] ?></td>
+                            <td><?= number_format($aluno['notas'][0], 1) ?></td>
+                            <td><?= number_format($aluno['notas'][1], 1) ?></td>
+                            <td><?= number_format($aluno['notas'][2], 1) ?></td>
+                            <td><strong><?= number_format($media, 1) ?></strong></td>
 
-    $classeCor = match ($situacao) {
-        'Aprovado' => 'text-success fw-bold',
-        'Recuperação' => 'text-warning fw-bold',
-        default => 'text-danger fw-bold',
-    };
-?>
-    <tr>
-        <td><?= $aluno['nome'] ?></td>
-
-        <?php foreach ($aluno['notas'] as $nota): ?>
-            <td><?= round($nota, 1) ?></td>
-        <?php endforeach; ?>
-
-        <td><strong><?= round($media, 1) ?></strong></td>
-        <td class="<?= $classeCor ?>"><?= $situacao ?></td>
-    </tr>
-<?php endforeach; ?>
+                            <td class="<?= $classeCor ?>"><?= $situacao ?></td>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
