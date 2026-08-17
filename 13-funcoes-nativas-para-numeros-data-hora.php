@@ -67,7 +67,7 @@
         $dataFormatada = date("d/m/y", strtotime($dataFormatoBD));
         ?>
         <p>Data (em formato de sistema/banco): <?= $dataFormatoBD ?></p>
-        <p>Dta (convertida e formatada): <?= $dataFormatada ?></p>
+        <p>Data (convertida e formatada): <?= $dataFormatada ?></p>
     
 
 </div>
