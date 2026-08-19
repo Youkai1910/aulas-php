@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -50,30 +50,59 @@
         <p>Contato <b>sem</b> sanitização: <?= $contato ?></p>
         <p>Contato <b>com</b> sanitização: <?= $contatoSanitizado ?></p>
 
-        <h3>FILTER_SANITIZE_FULL_SPECIAL_CHARS()</h3>
-        <?php 
+        <h3>FILTER_SANITIZE_FULL_SPECIAL_CHARS</h3>
+        <?php
         // Simulado uma entrada de dados de código HTML
         $nomeCompleto = "<img src= 'https://ogimg.infoglobo.com.br/rioshow/25088054-e75-c90/FT1086A/pacoca-caseira.jpg'>";
-$nomeCompletoSanitizado = filter_var(
-        $nomeCompleto, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-         ?>
-         <p>Nome informado: <?= $nomeCompletoSanitizado ?></p>
+        $nomeCompletoSanitizado = filter_var(
+            $nomeCompleto,
+            FILTER_SANITIZE_FULL_SPECIAL_CHARS
+        );
+        ?>
+        <p>Nome informado: <?= $nomeCompletoSanitizado ?></p>
 
-         <?php 
-         //simulação de um atque de injeção de códigos JS (XSS - CROSS Site Scripting)
-         $ataqueXSS = "<script>localtion = 'https://sp.senac.br'</script>";
-         ?>
-         <p>Teste: <?= filter_var($ataqueXSS, FILTER_SANITIZE_FULL_SPECIAL_CHARS) ?></p> 
+        <?php
+        //simulação de um atque de injeção de códigos JS (XSS - CROSS Site Scripting)
+        $ataqueXSS = "<script>localtion = 'https://sp.senac.br'</script>";
+        ?>
+        <p>Teste: <?= filter_var($ataqueXSS, FILTER_SANITIZE_FULL_SPECIAL_CHARS) ?></p>
 
-         <h3>htmlspecialchars()</h3>
-         <p>Pode ser usado como alternativa ao filtro.</p>
-         <?php 
-         $nomeCompletoCorrigido = htmlspecialchars($nomeCompleto);
-         $ataqueEvitado = htmlspecialchars($ataqueXSS);
-         ?>
-         <p>Nome competo corrigido: <?= $nomeCompletoCorrigido ?></p>
-         <p>Ataque evitado: <?= $ataqueEvitado ?></p>
+        <h3>htmlspecialchars()</h3>
+        <p>Pode ser usado como alternativa ao filtro.</p>
+        <?php
+        $nomeCompletoCorrigido = htmlspecialchars($nomeCompleto);
+        $ataqueEvitado = htmlspecialchars($ataqueXSS);
+        ?>
+        <p>Nome competo corrigido: <?= $nomeCompletoCorrigido ?></p>
+        <p>Ataque evitado: <?= $ataqueEvitado ?></p>
+
+        <h3>FILTER_SANITIZE_NUMBER_INT</h3>
+        <?php 
+        $idade = "Tenho 15 anos";
+        $idade = filter_var($idade, FILTER_SANITIZE_NUMBER_INT);
+        ?>
+        <p>Idade: <?= $idade ?></p>
+
+        <h3>FILTER_SANITIZE_NUMBER_FLOAT</h3>
+        <?php 
+        $precoInicial = "R$ 1000";
+        $desconto = "R$ 500.30";
+
+        $precoInicial = filter_var(
+            $precoInicial, FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION
+        );
+        $desconto = filter_var(
+            $desconto, FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION
+        );
+
+        $precoFinal = $precoInicial - $desconto;
+        ?>
+        <p>Preço Inicial: <?= $precoInicial ?></p>
+        <p>Desconto de: <?= $desconto ?></p>
+        <p>Preço final: <?= $precoFinal ?></p>
+
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
 </body>
