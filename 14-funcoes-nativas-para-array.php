@@ -107,7 +107,29 @@ $catalagoComDesconto = array_map(function(float $preco):float{
 
 <hr>
 
+<h2>array_column()</h2>
+<p>Retorna um novo array com os valores de determinada chave associativas. </p>
+<?php $servicos = [
+    ["codigo" => 3, "tipo" => "Limpeza", "status" => "Concluído"],
+    ["codigo" => 12, "tipo" => "Manutenção", "status" => "Concluído"],
+    ["codigo" => 1, "tipo" => "Reparo", "status" => "Pendente"],
+    ["codigo" => 7, "tipo" => "Consultoria", "status" => "Concluído"],
+    ["codigo" => 4, "tipo" => "Instalação", "status" => "Concluído"]
+
+]; 
+$tipoServicos  = array_column($servicos, "tipo");
+?>
+<pre><?php var_dump($tipoServicos) ?></pre>
+
+
+<hr>
+
 <h2>array_filter()</h2>
+<p>Retornar valores para um novo array baseado em algum condição/critério.</p>
+<?php 
+$servicosConcluidos = array_filter($servicos, fn(array $servico):bool => $servico["status"] === "Concluído");
+?>
+<pre><?php var_dump($servicosConcluidos) ?></pre>
 
 </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
