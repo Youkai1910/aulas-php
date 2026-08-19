@@ -23,6 +23,12 @@
           <section>
             <h3>Título qualquer</h3>
             <?php include "16-textos.php"; ?>
+
+            <ul>
+                <?php foreach ($tecnologias as  $tecnologia): ?>
+                    <li><?= $tecnologia ?></li>
+                    <?php endforeach; ?>
+                 </ul>
           </section>
         
 
