@@ -1,3 +1,6 @@
+<?php 
+const BASE = "/site/";
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -9,9 +12,10 @@
     <header>
         <h1>Site com PHP</h1>
         <nav>
-            <a href="index.php">Home</a>
-            <a href="curso.php">Cursos</a>
-            <a href="duvidas.php">Duvidas</a>
+            <a href="<?= BASE ?>index.php">Home</a>
+            <a href="<?= BASE ?>cursos.php">Cursos</a>
+            <a href="<?= BASE ?>duvidas.php">Duvidas</a>
+            <a href="<?= BASE ?>planos.php">Planos</a>
         </nav>
     </header>
     <main>
