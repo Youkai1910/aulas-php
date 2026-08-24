@@ -15,11 +15,17 @@
         <h1>Recebimento e processamento dos dados</h1>
         <hr>
         <?php
+        /* $_POST E $_GET Arrays superglobais que possuem os dados enviados a partir de formulario  e/ou links dinâmicos.*/
+
+        if($_SERVER["REQUEST_METHOD"] === "POST"){
+
+      
+
         // Capturando os dados de cada campo
         $nome = $_POST["nome"];
         $email = $_POST["email"];
         $idade = $_POST["idade"];
-        $mensagem = $_POST["mensagem"];
+        $mensagem = $_POST["mensagem"];      
 
 /* Operador ?? -> coalesciência nula.
 Caso nenhum interesse seja selecionado , a variável guardar um array vazio */
@@ -27,20 +33,31 @@ Caso nenhum interesse seja selecionado , a variável guardar um array vazio */
         $interesses = $_POST["interesses"] ?? [];
 
 // Caso nenehuma opção  seja selecionada, o valor "nao" fica como padrão
-        $informativos = $_POST["informativos"] ?? "nao";
+        $informativos = $_POST["informativos"] ?? "nao";      
         ?>
 
         <h2>Dados recebidos</h2>
         <p>Nome: <?= $nome ?></p>
         <p>E-mail: <?= $email ?></p>
         <p>Idade: <?= $idade ?> anos</p>
-        <p>Mensagem: <?= $mensagem ?></p>
+        <p>Mensagem: <?= $mensagem ?></p>   
 
         <?php if(!empty($interesses)): ?>
         <p>Interesses: <?= implode(", ", $interesses) ?></p>
         <?php endif; ?>
 
-        <p>Informativos: <?= $informativos === 'sim' ? "Sim" : "Não" ?></p>
+        <p>Informativos: <?= $informativos === 'sim' ? "Sim" : "Não" ?></p> 
+        <?php 
+           } else { ?>
+            <div class="alert alert-danger">
+            <h2>Acesso inválido!</h2>
+            <p>Você deve usar o formulário para enviar os dados.</p>
+            <hr>
+            <a href="17-formulario.html" class= "btn btn-primary">Ir para o formulario</a>
+            </div>
+        <?php 
+           } 
+        ?>  
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
