@@ -17,15 +17,17 @@
         <?php
         /* $_POST E $_GET Arrays superglobais que possuem os dados enviados a partir de formulario  e/ou links dinâmicos.*/
 
+        $erros = [];
+
         if($_SERVER["REQUEST_METHOD"] === "POST"){
 
       
 
         // Capturando os dados de cada campo
-        $nome = $_POST["nome"];
-        $email = $_POST["email"];
-        $idade = $_POST["idade"];
-        $mensagem = $_POST["mensagem"];      
+        $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS);
+        $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_SPECIAL_CHARS);
+        $idade = filter_input(INPUT_POST, 'idade', FILTER_SANITIZE_NUMBER_INT);
+        $mensagem =  filter_input(INPUT_POST, 'mensagem', FILTER_SANITIZE_SPECIAL_CHARS);  
 
 /* Operador ?? -> coalesciência nula.
 Caso nenhum interesse seja selecionado , a variável guardar um array vazio */
