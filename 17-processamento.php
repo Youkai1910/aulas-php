@@ -15,7 +15,6 @@
         <h1>Recebimento e processamento dos dados</h1>
         <hr>
         <?php
-        /* $_POST E $_GET Arrays superglobais que possuem os dados enviados a partir de formulario  e/ou links dinâmicos.*/
 
         $erros = [];
 
@@ -27,8 +26,6 @@
             $idade = filter_input(INPUT_POST, 'idade', FILTER_SANITIZE_NUMBER_INT);
             $mensagem =  filter_input(INPUT_POST, 'mensagem', FILTER_SANITIZE_SPECIAL_CHARS);
 
-            /* Operador ?? -> coalesciência nula.
-Caso nenhum interesse seja selecionado , a variável guardar um array vazio */
             $interessesValidos = ["html", "css", "javascript"];
 
             $interesses = filter_input(INPUT_POST, 'intetresses', FILTER_SANITIZE_SPECIAL_CHARS) ?? [];
@@ -38,13 +35,28 @@ Caso nenhum interesse seja selecionado , a variável guardar um array vazio */
             }
             $interessesValidados = array_intersect($interesses, $interessesValidos);
 
-            // Caso nenehuma opção  seja selecionada, o valor "nao" fica como padrão
             $opcoesValidas = ["sim", "nao"];
 
             $informativos = filter_input(INPUT_POST, 'informativos', FILTER_SANITIZE_SPECIAL_CHARS);
-            
+
             $informativos = in_array($informativos, $opcoesValidas) ? $informativos : "nao";
-            
+
+            if (empty($nome)) $erros[] = "O campo nome é  obrigatório";
+            if (empty($email)) $erros[] = "O email de ser informado";
+            if (empty($mensagem)) $erros[] = "Você deve escrever uma mensagen";
+
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) $erros[] = "O email não é válido";
+
+            $filtroIdade = [
+                "options" => [
+                    "min_range" => 0,
+                    "max_range" => 120,
+                ]
+            ];
+
+            if (!filter_var($idade, FILTER_VALIDATE_INT, $filtroIdade)) {
+                $erros[] = "Idade inválida. A idade de estar entre 0 e 120";
+            }
             if (!empty($erros)):
 
         ?>
