@@ -24,7 +24,7 @@ Adapte o exercício para que funcione com uma lista de 5 alunos, com suas respec
         <hr>
         <?php
 
-        function calcularMedia($notas)
+        function calcularMedia(array $notas): float
         {
             $soma = 0;
             $quantidade = 0;
@@ -37,12 +37,11 @@ Adapte o exercício para que funcione com uma lista de 5 alunos, com suas respec
             return $soma / $quantidade;
         }
 
-        function verificarSituacao($media)
+        function verificarSituacao(float $media): string
         {
             if ($media >= 7) {
                 return 'Aprovado';
             } elseif ($media >= 5) {
-
                 return 'Recuperação';
             } else {
                 return 'Reprovado';
@@ -56,6 +55,7 @@ Adapte o exercício para que funcione com uma lista de 5 alunos, com suas respec
             ["nome" => "Daniel Lima", "notas" => [5.0, 4.5, 5.0]],
             ["nome" => "Eduardo Alves", "notas" => [1.0, 5.5, 7.0]]
         ];
+        
         ?>
         <div class="table-responsive">
             <table class="table table-striped table-bordered align-middle">

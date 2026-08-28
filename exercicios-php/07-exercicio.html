@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicios</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Formulário de Cadastro</h1>
+        <form action="07-exercicio.php" method="post">
+            <p>
+                <label for="nome">Nome do Produto</label><br>
+                <input type="text" id="nome" name="nome" required>
+            </p>
+            <p>
+                <label for="fabricante">Fabricante:</label><br>
+                <select name="fabricante" id="fabricante" required>
+                    <option value="">Escolha um fabricante</option>
+                    <option value="nike">Nike</option>
+                    <option value="adidas">Adidas</option>
+                    <option value="puma">Puma</option>
+                    <option value="mizuno">Mizuno</option>
+                </select>
+            </p>
+
+            <p>
+             <label for="preco">Preço (R$):</label><br>
+             <input type="number" name="preco" id="preco" min="100" max="10000" step="0.01" required>
+            </p>
+
+            <p>
+                <label for="quantidade">Quantidade:</label><br>
+                <input type="number" id="quantidade" name="quantidade" min="0" max="1000" required>
+            </p>
+            <button type="submit">Cadastrar Produto</button>
+        </form>
+    </div>
+
+</body>
+
+</html>
